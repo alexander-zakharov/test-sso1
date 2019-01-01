@@ -16,10 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class GreetingController {
 
 	@GetMapping("/")
-	public String home() {
+	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("token", getAccessToken());
-		return "index";
+		return mv;
 	}
 	
     @RequestMapping("/greeting")
