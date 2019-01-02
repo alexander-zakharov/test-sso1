@@ -29,7 +29,7 @@ public class GreetingController {
 	@GetMapping("/")
 	public ModelAndView home(Principal principal) {
 		
-		handler.logout(getAccessToken());
+		handler.logout("jdjddjjd");
 		
 		OAuth2Authentication authentication = (OAuth2Authentication)principal;
 		String name = authentication.getName();
