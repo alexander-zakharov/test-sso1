@@ -17,7 +17,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableOAuth2Sso
 public class ApplicationSecurity extends OAuth2SsoDefaultConfiguration {
 	
-	@Resource LogoutHandler logoutHandler;
+//	@Resource LogoutHandler logoutHandler;
 
     public ApplicationSecurity(ApplicationContext applicationContext, OAuth2SsoProperties sso) {
         super(applicationContext, sso);
