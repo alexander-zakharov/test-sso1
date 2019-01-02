@@ -38,7 +38,8 @@ public class ApplicationSecurity extends OAuth2SsoDefaultConfiguration {
         		.deleteCookies()
         		.invalidateHttpSession(true)
         		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-        		.addLogoutHandler(logoutHandler);
-//        		.logoutSuccessUrl("/");
+//        		.addLogoutHandler(logoutHandler)
+//        		;
+        		.logoutSuccessUrl("/");
     }
 }
