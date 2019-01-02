@@ -10,6 +10,10 @@
 <br/>
 <a href="details.html" th:href="@{https://test-sso002.herokuapp.com/}">app002</a>
 <br/>
+
+<a href="details.html" th:href="@{https://test-sso002.herokuapp.com/logout}">app002 safe switch</a>
+<br/>
+
 <a href="logout" th:href="@{https://dev-872798.oktapreview.com/oauth2/default/v1/logout(id_token_hint=${token},post_logout_redirect_uri='https://test-sso001.herokuapp.com/logout')}">Logout</a>
 <br/>
 Token: <span th:text="${token}"></span>
