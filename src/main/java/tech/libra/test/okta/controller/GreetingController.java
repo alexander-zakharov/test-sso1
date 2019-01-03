@@ -41,11 +41,14 @@ public class GreetingController {
 	
 	}
 	
-    @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    @GetMapping("/greeting")
+    public ModelAndView greeting(@RequestParam(value="name", required=false, defaultValue="World") String name) {
     
-    	model.addAttribute("name", name);
-        return "greeting";
+    	ModelAndView mv = new ModelAndView("greeting");
+    	
+    	mv.addObject("name", name);
+        
+    	return mv;
     
     }
     
