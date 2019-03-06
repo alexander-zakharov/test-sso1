@@ -7,13 +7,18 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoPr
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.annotation.Resource;
 
 
 @Configuration
 @EnableOAuth2Sso
 public class ApplicationSecurity extends OAuth2SsoDefaultConfiguration {
+
+    @Resource
+    LogoutHandler logoutHandler;
 
     public ApplicationSecurity(ApplicationContext applicationContext, OAuth2SsoProperties sso) {
         super(applicationContext, sso);
@@ -29,6 +34,7 @@ public class ApplicationSecurity extends OAuth2SsoDefaultConfiguration {
         		.deleteCookies()
         		.invalidateHttpSession(true)
         		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .addLogoutHandler(logoutHandler)
         		.logoutSuccessHandler((rq,rs, a) -> {
         			String postLogoutRedirect = rq.getParameter("post_logout_redirect");
         			if (StringUtils.isEmpty(postLogoutRedirect)) postLogoutRedirect = "/";
